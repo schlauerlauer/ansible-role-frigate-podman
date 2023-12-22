@@ -24,5 +24,5 @@
     shm_size: "{{ frigate_shm_size }}"
   vars:
     default_volumes:
-      - "{{ base_dir }}/config.yml:/config/config.yml:ro,Z"
+      - "{{ base_dir }}/config.yml:/config/config.yml:rw,Z"
       - "/etc/localtime:/etc/localtime:ro"
