@@ -3,7 +3,7 @@
 
 - name: "Copy frigate config"
   template:
-    force: yes
+    force: no
     src: "frigate.yml.j2"
     dest: "{{ base_dir }}/config.yml"
 
