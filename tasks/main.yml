@@ -1,0 +1,35 @@
+---
+# tasks file for ansible-role-frigate-podman
+
+- name: "Create directories"
+  file:
+    path: "{{ item }}"
+    state: "directory"
+  loop:
+    - "{{ base_dir }}/frigate"
+
+- name: "Copy frigate config"
+  template:
+    force: yes
+    src: "frigate.yml.j2"
+    dest: "{{ base_dir }}/frigate/config.yml"
+
+- name: "Frigate server"
+  containers.podman.podman_container:
+    name: "{{ frigate_container_name }}"
+    image: "ghcr.io/blakeblackshear/frigate:{{ frigate_container_tag }}"
+    recreate: no
+    restart_policy: "no"
+    rm: no
+    tty: no
+    detach: yes
+    state: "started"
+    volumes: "{{ frigate_volumes + default_volumes }}"
+    tmpfs:
+      "/tmp/cache": “rw,size=1048576k,mode=1777”
+    ports: "{{ frigate_ports }}"
+    shm_size: "{{ frigate_shm_size }}"
+  vars:
+    default_volumes:
+      - "{{ base_dir }}/frigate/config.yml:/config/config.yml:ro,Z"
+      - "/etc/localtime:/etc/localtime:ro"

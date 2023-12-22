@@ -1,0 +1,16 @@
+---
+# defaults file for ansible-role-frigate-podman
+
+base_dir: "."
+
+frigate_container_name: "frigate"
+frigate_container_tag: "0.13.0-beta7"
+frigate_ports:
+  - "5000:5000"
+  - "8554:8554" # RTSP feeds
+  - "8555:8555/tcp" # WebRTC over tcp
+  - "8555:8555/udp" # WebRTC over udp
+frigate_rtsp_password: "CHANGE_ME_Blaspheme-Styling1-Giant-Dock-Sulphuric-Scarily-Nuttiness-Opal-Narrow-Raft"
+
+frigate_volumes: []
+frigate_shm_size: "64m"
