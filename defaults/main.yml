@@ -6,7 +6,7 @@ base_dir: "."
 frigate_container_name: "frigate"
 frigate_container_tag: "0.14.1"
 frigate_ports:
-  # - "5000:5000" # unencrypted, unauthenticated http port
+  - "5000:5000" # unencrypted, unauthenticated http port
   - "8971:8971" # tls enabled by default
   - "8554:8554" # RTSP feeds
   - "8555:8555/tcp" # WebRTC over tcp
