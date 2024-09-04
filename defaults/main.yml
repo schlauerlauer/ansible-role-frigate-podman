@@ -14,9 +14,13 @@ frigate_ports:
 frigate_rtsp_password: "CHANGE_ME_Blaspheme-Styling1-Giant-Dock-Sulphuric-Scarily-Nuttiness-Opal-Narrow-Raft"
 
 frigate_volumes: []
-frigate_shm_size: "64m"
+frigate_shm_size: "128m"
 
-frigate_user: "17558:17558"
+# TODO https://github.com/blakeblackshear/frigate/issues/3108
+# frigate_user: "17558:17558"
+
+frigate_user: "0:0"
+
 frigate_devices:
   - "/dev/apex_0:/dev/apex_0"
   - "/dev/apex_1:/dev/apex_1"
