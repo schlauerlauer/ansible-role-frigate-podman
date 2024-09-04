@@ -4,7 +4,7 @@
 base_dir: "."
 
 frigate_container_name: "frigate"
-frigate_container_tag: "0.13.0-beta7"
+frigate_container_tag: "0.14.1"
 frigate_ports:
   - "5000:5000"
   - "8554:8554" # RTSP feeds
@@ -14,3 +14,8 @@ frigate_rtsp_password: "CHANGE_ME_Blaspheme-Styling1-Giant-Dock-Sulphuric-Scaril
 
 frigate_volumes: []
 frigate_shm_size: "64m"
+
+frigate_user: "17558:17558"
+frigate_devices:
+  - "/dev/apex_0:/dev/apex_0"
+  - "/dev/apex_1:/dev/apex_1"

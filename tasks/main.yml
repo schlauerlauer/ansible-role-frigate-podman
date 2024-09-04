@@ -17,6 +17,9 @@
     tty: no
     detach: yes
     state: "started"
+    user: "{{ frigate_user }}"
+    device: "{{ frigate_devices }}"
+    group_add: "keep-groups"
     volumes: "{{ frigate_volumes + default_volumes }}"
     tmpfs:
       "/tmp/cache": "rw,size=1048576k,mode=1777"
